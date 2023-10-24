@@ -7,7 +7,7 @@ const xmpp = client({
     username: "dogbot",
     password: "doggy",
 });
-
+//
 debug(xmpp, true);
 
 xmpp.on("error", (err) => {
