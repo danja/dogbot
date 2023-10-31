@@ -1,9 +1,12 @@
 
 
-module.exports = (logger, config, ai_connect) => {
+module.exports = (logger, config, promptAI) => {
   const { client, xml, jid } = require('@xmpp/client')
   this.jid = null
+  this.promptAI = promptAI
+  this.sentFlag = false
 
+  // SEND
   // declare send chat/groupchat function
   this.send = async (to, message, type) => {
     logger.info(`Send ${type} message to ${to}`)
@@ -19,6 +22,7 @@ module.exports = (logger, config, ai_connect) => {
         message)
     )
     await xmppClient.send(stanza)
+    this.sentFlag = true
     logger.debug(`${type} message successfully sent to ${to}`)
   }
 
@@ -118,13 +122,27 @@ module.exports = (logger, config, ai_connect) => {
         const massage = message.replace(/\n|\r/g, ' ')
         //  logger.debug(`Message: "${message.replace(/\n|\r/g, ' ')}"`)
         logger.debug(`Message: "${massage}"`)
-        //  response = ai_connect.prompt(message.toString())
-        this.send(to, massage, type)
+        //  response = promptAI.prompt(message.toString())
+
+
+        if (!this.sentFlag) { // NEED A Q?
+          this.send(to, massage, type)
+          console.log("TOOO " + to)
+          //   ai_response = await this.promptAI(massage)
+          ai_response = this.callAI(massage)
+          console.log("ai_response " + ai_response)
+          console.log("from " + fromJid.toString())
+          this.send(fromJid, ai_response, type)
+        }
         //   this.send(to, response, type)
 
       }
     }
   })
+
+  this.callAI = async function (message) {
+    await this.promptAI(message)
+  }
 
   // handle status
   xmppClient.on('status', (status) => {

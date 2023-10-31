@@ -54,10 +54,10 @@ const logger = require('./lib/logger')()
 // update logger with configuration
 logger.updateConfig(config.logger)
 
-const ai_connect = require('./lib/openai-connect')
+const { promptAI } = require('./lib/openai-connect')
 
 // load xmpp module
-const xmpp = require('./lib/xmpp-connect')(logger, config, ai_connect)
+const xmpp = require('./lib/xmpp-connect')(logger, config, promptAI)
 
 
 
