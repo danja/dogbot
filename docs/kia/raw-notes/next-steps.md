@@ -1,5 +1,3 @@
-danbri/gnamgnam - gather links
-
 https://www.paypal.com/signin
 
 set up mail
@@ -32,9 +30,3 @@ Get chatgpt to help with prj
 check mail - ontology engineering with llms
 
 Write up rdf/sparql <-> natural language heuristics
-
----
-
-create training data :
-
-script to copy all files of a certain type to a dir
