@@ -149,13 +149,13 @@ module.exports = (logger, config, promptAI) => {
     logger.trace(`Status changed to ${status}`)
   })
 
-  // trace input/output
-  // xmppClient.on('input', (input) => {
-  //   logger.trace('<<<<', input)
-  // })
-  // xmppClient.on('output', (output) => {
-  //   logger.trace('>>>', output)
-  // })
+  // trace input/output DOES ANYTHING?
+  xmppClient.on('input', (input) => {
+    logger.trace('<<<<', input)
+  })
+  xmppClient.on('output', (output) => {
+    logger.trace('>>>', output)
+  })
 
   // handle error
   xmppClient.on('error', (err) => {
