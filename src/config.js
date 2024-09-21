@@ -17,19 +17,18 @@
         }
     },
     "xmppServer": {
-        "service": "xmpps://hyperdata.it",
-            "domain": "hyperdata.it",
-                "username": "dogbot@hyperdata.it",
-                    "password": "doggy",
+        "service": "xmpps://xmpp.hyperdata.it",
+            "domain": "xmpp.hyperdata.it",
+                "username": "danja@xmpp.hyperdata.it",
+                    "password": "ClaudioPup_123",
                         "resource": "botservice",
                             "errorReply": "Oops, something went wrong :(",
                                 "rooms": [
                                     {
-                                        "id": "shed@conference.hyperdata.it",
+                                        "id": "shed@conference.xmpp.hyperdata.it",
                                         "password": null
                                     }
                                 ]
     }
 }
-// ejabberdctl register dogbot hyperdata.it 
-// ejabberdctl change_password dogbot hyperdata.it doggy
+

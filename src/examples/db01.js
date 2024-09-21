@@ -3,9 +3,9 @@ const debug = require("@xmpp/debug");
 
 const xmpp = client({
     service: "xmpps://hyperdata.it",
-    domain: "hyperdata.it",
-    username: "dogbot",
-    password: "doggy",
+    domain: "xmpp.hyperdata.it",
+    username: "danja",
+    password: "ClaudioPup_123",
 });
 //
 debug(xmpp, true);
